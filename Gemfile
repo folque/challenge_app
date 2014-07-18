@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
+ruby '1.9.3'
 
 # core
 gem 'rails', '4.1.1'
-gem 'sqlite3'
+
 gem 'devise'
 
 # frontend
@@ -23,6 +24,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # development
 group :development do
   gem 'spring'
+  gem 'sqlite3'
 end
 
 # testing
@@ -34,5 +36,10 @@ group :test do
   gem "cucumber-rails",     "~> 1.4.1", require: false
   gem "factory_girl"
   gem "rspec-rails"
+end
+
+group :production do
+  gem 'pg', '0.15.1'
+  gem 'rails_12factor', '0.0.2'
 end
 
