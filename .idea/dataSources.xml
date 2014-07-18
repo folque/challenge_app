@@ -1,16 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="3648806384">
+  <component name="DataSourceManagerImpl" format="xml" hash="2119255961">
     <data-source source="LOCAL" name="Rails challenge_app: development" uuid="9d8c35a3-307c-4b54-9456-14d88162d78a">
       <driver-ref>sqlite.xerial</driver-ref>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Dev\RubyMineProjects\mr-challange\challenge_app\db\development.sqlite3</jdbc-url>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:db/challengedev</jdbc-url>
+      <user-name>challenge</user-name>
+      <user-password>dfc9dfc2dfcbdfc6dfc6dfcfdfc4dfcddfcf</user-password>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails challenge_app: test" uuid="2d5da3fe-51a6-4e92-bdfa-bf29c39efecd">
       <driver-ref>sqlite.xerial</driver-ref>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Dev\RubyMineProjects\mr-challange\challenge_app\db\test.sqlite3</jdbc-url>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:db/challengetest</jdbc-url>
+      <user-name>challenge</user-name>
+      <user-password>dfc9dfc2dfcbdfc6dfc6dfcfdfc4dfcddfcf</user-password>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails challenge_app: production" uuid="c2b08ea5-cfa6-404c-ad3f-d5f711480318">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:db/production.sqlite3</jdbc-url>
+      <user-name>challenge</user-name>
+      <user-password>dfc9dfc2dfcbdfc6dfc6dfcfdfc4dfcddfcf</user-password>
       <libraries />
     </data-source>
   </component>

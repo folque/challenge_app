@@ -3,7 +3,7 @@ ruby '1.9.3'
 
 # core
 gem 'rails', '4.1.1'
-
+gem 'pg', '0.15.1'
 gem 'devise'
 
 # frontend
@@ -24,7 +24,6 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # development
 group :development do
   gem 'spring'
-  gem 'sqlite3'
 end
 
 # testing
@@ -39,7 +38,6 @@ group :test do
 end
 
 group :production do
-  gem 'pg', '0.15.1'
   gem 'rails_12factor', '0.0.2'
 end
 
