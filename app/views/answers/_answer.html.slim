@@ -1,7 +1,11 @@
 .answer id="answer-#{answer.id}"
-  - if current_user == @question.user
-    = link_to "Accept", questions_path
-  = link_to "vote", question_answer_likes_path(@question.id, answer.id), :method => :post
+  - if answer.accepted?
+    = 'Accepted'
+  - else
+    -if !question_has_accepted_answer(@question)
+      - if current_user == @question.user
+        = link_to "Accept", accept_question_answer_votes_path(@question.id, answer.id)
+      = link_to "vote", like_question_answer_votes_path(@question.id, answer.id)
   = pluralize(answer.likes.size, 'vote')
   .contents= answer.contents
   .details

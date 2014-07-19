@@ -14,6 +14,10 @@ class AnswersController < ApplicationController
     end
   end
 
+  def accept
+
+  end
+
   private
 
     def set_question
