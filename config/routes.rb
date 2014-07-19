@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
+  get 'likes/vote'
+
   devise_for :users
 
   root to: 'questions#index'
 
   resources :questions do
-    resources :answers, only: [:create]
+    resources :answers, only: [:create, :vote] do
+      resources :likes, only: [:create]
+    end
   end
 
   resources :users, only: [:show]

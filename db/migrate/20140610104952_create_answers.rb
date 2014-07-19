@@ -4,6 +4,8 @@ class CreateAnswers < ActiveRecord::Migration
       t.integer :question_id
       t.integer :user_id
       t.text :contents
+      t.integer :likes
+      t.boolean :accepted
 
       t.timestamps
     end

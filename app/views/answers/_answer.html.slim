@@ -1,4 +1,6 @@
 .answer id="answer-#{answer.id}"
+  = link_to "vote", question_answer_likes_path(@question.id, answer.id), :method => :post
+  = pluralize(answer.likes.size, 'vote')
   .contents= answer.contents
   .details
     '  Answered on

@@ -20,7 +20,7 @@
     <data-source source="LOCAL" name="Rails challenge_app: production" uuid="c2b08ea5-cfa6-404c-ad3f-d5f711480318">
       <driver-ref>postgresql</driver-ref>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql:db/production.sqlite3</jdbc-url>
+      <jdbc-url>jdbc:postgresql:db/challengeprod</jdbc-url>
       <user-name>challenge</user-name>
       <user-password>dfc9dfc2dfcbdfc6dfc6dfcfdfc4dfcddfcf</user-password>
       <libraries />
