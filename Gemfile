@@ -21,6 +21,11 @@ gem 'tzinfo-data'
 # doc
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
+# Image processing
+gem 'paperclip', '~> 3.5.3'
+gem 'cocaine', '~> 0.5.4'
+gem 'aws-sdk'
+
 # development
 group :development do
   gem 'spring'

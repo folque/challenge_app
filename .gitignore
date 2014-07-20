@@ -20,3 +20,6 @@
 
 # Idea files
 .idea/workspace.xml
+
+# avatar folder
+public/system

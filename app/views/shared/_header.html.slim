@@ -8,8 +8,8 @@ header
   = link_to "Challenge App", root_path
   '  |
   - if user_signed_in?
-    ' Welcome,
-    = current_user
+    = image_tag current_user.avatar.url(:thumb)
+    = link_to current_user, user_path(current_user.id)
     | (
     = current_user.points
     | )

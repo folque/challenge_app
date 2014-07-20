@@ -31,6 +31,10 @@ h2 Edit Profile
       ' (we need your current password to confirm your changes)
     = f.password_field :current_password, autocomplete: "off"
 
+  .field
+    label= f.label :avatar
+    = f.file_field :avatar
+
   div
     = f.submit "Update"
 

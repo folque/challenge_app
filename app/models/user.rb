@@ -8,6 +8,14 @@ class User < ActiveRecord::Base
   has_many :answers
   has_many :likes
 
+  has_attached_file :avatar, styles: {
+      thumb: '15x15>',
+      small: '100x100>'
+  }
+
+  # Validate the attached image is image/jpg, image/png, etc
+  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+
   def to_s
     "#{first_name} #{last_name}"
   end
