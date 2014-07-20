@@ -5,7 +5,8 @@
     -if !question_has_accepted_answer(@question)
       - if current_user == @question.user
         = link_to "Accept", accept_question_answer_votes_path(@question.id, answer.id)
-      = link_to "vote", like_question_answer_votes_path(@question.id, answer.id)
+      - if current_user != answer.user
+        = link_to "vote", like_question_answer_votes_path(@question.id, answer.id)
   = pluralize(answer.likes.size, 'vote')
   .contents= answer.contents
   .details
