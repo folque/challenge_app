@@ -7,8 +7,13 @@ class User < ActiveRecord::Base
   has_many :questions
   has_many :answers
   has_many :likes
+ # after_initialize :init
 
   def to_s
     email
   end
+
+  #def init
+  #  self.points = 100           #will set the default value only if it's nil
+  #end
 end

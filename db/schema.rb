@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140719225601) do
+ActiveRecord::Schema.define(version: 20140720033649) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,13 +22,13 @@ ActiveRecord::Schema.define(version: 20140719225601) do
     t.text     "contents"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "accepted"
+    t.boolean  "accepted",    default: false
   end
 
   add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
   add_index "answers", ["user_id"], name: "index_answers_on_user_id", using: :btree
 
-  create_table "votes", force: true do |t|
+  create_table "likes", force: true do |t|
     t.integer  "user_id"
     t.integer  "answer_id"
     t.datetime "created_at"
@@ -49,10 +49,11 @@ ActiveRecord::Schema.define(version: 20140719225601) do
   add_index "questions", ["user_id"], name: "index_questions_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "email",              default: "", null: false
-    t.string   "encrypted_password", default: "", null: false
+    t.string   "email",              default: "",  null: false
+    t.string   "encrypted_password", default: "",  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "points",             default: 100
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

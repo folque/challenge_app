@@ -3,12 +3,18 @@ class VotesController < ApplicationController
   before_action :set_answer, only: [:like, :accept]
 
   def like
-      Like.create(:user_id => current_user.id, :answer_id => @answer.id)
+      if current_user != @answer.user
+        Like.create(:user_id => current_user.id, :answer_id => @answer.id)
+        @answer.user.update_attribute(:points, @answer.user.points + 5)
+      else
+        flash.now[:error] = "You can't vote in your own answers!"
+      end
       redirect_to question_path(params[:question_id])
   end
 
   def accept
     @answer.update_attributes(:accepted => true)
+    @answer.user.update_attribute(:points, @answer.user.points + 25)
     redirect_to question_path(params[:question_id])
   end
 
