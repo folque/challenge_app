@@ -4,5 +4,5 @@
 # Examples:
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-Badge.create(:name => 'Superstar')
+#   Mayor.create(name: 'Emanuel', city: cit0ies.first)
+Badge.create(:name => 'Superstar', :avatar => 'superstar.jpg')

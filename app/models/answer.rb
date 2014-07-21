@@ -2,11 +2,17 @@ class Answer < ActiveRecord::Base
   belongs_to :question
   belongs_to :user
   has_many :likes
-  #after_initialize :init
 
   validates :contents, presence: true
 
-  #def init
-  #  self.accepted ||= false           #will set the default value only if it's nil
-  #end
+  def create_like(user)
+    if current_user != user
+      Like.create(:user_id => user, :answer_id => self.id)
+    end
+  end
+
+  def accept
+    self.update_attributes(:accepted => true)
+  end
+
 end
