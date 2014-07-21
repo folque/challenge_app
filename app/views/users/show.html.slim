@@ -1,7 +1,15 @@
 .user id="user-#{@user.id}"
   h2= @user
 
-  = image_tag current_user.avatar(:small)
+  = image_tag @user.avatar(:small)
+
+  .badges
+    h3 Badges
+    - if @user.badges.any?
+      - @user.badges.each do |badge|
+        = render 'badge', badge: badge
+    - else
+      ' This user has no badges.
 
   .questions
     h3 Questions

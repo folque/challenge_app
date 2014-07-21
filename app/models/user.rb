@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   has_many :questions
   has_many :answers
   has_many :likes
+  has_many :rewardings
+  has_many :badges, :through => :rewardings
 
   has_attached_file :avatar, styles: {
       thumb: '15x15>',
