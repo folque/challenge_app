@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'votes/vote'
+  get 'likes/vote'
 
   devise_for :users, :controllers => {registrations: 'registrations'}
 
@@ -7,14 +7,12 @@ Rails.application.routes.draw do
 
   resources :questions do
     resources :answers, only: [:create] do
-      resources :votes, only: [:create] do
-        collection do
-          get 'like'
-          get 'accept'
-        end
-      end
+        get 'like'
+        get 'accept'
     end
   end
+  #get '/questions/:question_id/answers/:answer_id/like', to: 'answers#like', as: :like_answer
+  #get '/questions/:question_id/answers/:answer_id/accept', to: 'answers#accept', as: :accept_answer
 
   resources :users, only: [:show]
 

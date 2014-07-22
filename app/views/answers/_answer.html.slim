@@ -2,11 +2,11 @@
   - if answer.accepted?
     = 'Accepted'
   - else
-    -if !question_has_accepted_answer(@question)
-      - if current_user == @question.user
-        = link_to "Accept", accept_question_answer_votes_path(@question.id, answer.id)
-      - if current_user != answer.user
-        = link_to "vote", like_question_answer_votes_path(@question.id, answer.id)
+    - unless @question.has_accepted_answer
+      - if current_user.is_creator?(@question)
+        = link_to "Accept", question_answer_accept_path(@question, answer)
+      - if current_user.can_vote?(answer)
+        = link_to "vote", question_answer_like_path(@question, answer)
   = pluralize(answer.likes.size, 'vote')
   .contents= answer.contents
   .details

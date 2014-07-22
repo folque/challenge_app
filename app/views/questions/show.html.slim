@@ -6,7 +6,7 @@
   p
     = @question.contents
 
-  - if current_user == @question.user
+  - if current_user.is_creator?(@question)
     .links
       = link_to 'Edit', edit_question_path(@question)
       '  |
@@ -19,7 +19,7 @@
   - else
     '  There are no answers to this question.
 
-  - if !question_has_accepted_answer(@question)
+  - unless @question.has_accepted_answer
     h3 Add answer
 
     = form_for [@question, @answer] do |f|

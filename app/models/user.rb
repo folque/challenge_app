@@ -22,4 +22,53 @@ class User < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
+  def accepted_answer
+    self.update_attribute(:points, self.points + 25)
+    check_is_superstar
+  end
+
+  def voted_answer
+    self.update_attribute(:points, self.points + 5)
+    check_is_superstar
+  end
+
+  def can_vote?(answer)
+    if self != answer.user
+      true
+    else
+      false
+    end
+  end
+
+  def is_creator?(question)
+    if self == question.user
+      true
+    else
+      false
+    end
+  end
+
+
+  private
+
+    def check_is_superstar
+      if has_reached_points?(Rewarding::SUPERSTAR_POINTS)
+        create_superstar_badge
+      end
+    end
+
+    def create_superstar_badge
+      badge = Badge.superstar
+      unless self.badges.include?(badge)
+        Rewarding.create_superstar_badge(self)
+      end
+    end
+
+    def has_reached_points?(points)
+      if self.points >= points
+        true
+      else
+        false
+      end
+    end
 end

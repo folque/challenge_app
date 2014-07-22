@@ -7,7 +7,7 @@ end
 
 Then(/^That answer should have (\d+) like(s?)$/) do |count, suffix|
   within "answer-#{@answer.id}" do
-    expect(page).to have_content("#{count} votes#{suffix}")
+    expect(page).to have_content("#{count} likes#{suffix}")
   end
 end
 

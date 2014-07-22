@@ -213,11 +213,11 @@ Devise.setup do |config|
   # config.sign_out_all_scopes = true
 
   # ==> Navigation configuration
-  # Lists the formats that should be treated as navigational. Formats votes
+  # Lists the formats that should be treated as navigational. Formats likes
   # :html, should redirect to the sign in page when the user does not have
-  # access, but formats votes :xml or :json, should return 401.
+  # access, but formats likes :xml or :json, should return 401.
   #
-  # If you have any extra navigational formats, votes :iphone or :mobile, you
+  # If you have any extra navigational formats, likes :iphone or :mobile, you
   # should add them to the navigational formats lists.
   #
   # The "*/*" below is required to match Internet Explorer requests.
