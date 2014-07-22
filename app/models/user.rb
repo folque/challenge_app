@@ -32,6 +32,22 @@ class User < ActiveRecord::Base
     check_is_superstar
   end
 
+  def can_vote?(answer)
+    if self != answer.user
+      true
+    else
+      false
+    end
+  end
+
+  def is_creator?(question)
+    if self == question.user
+      true
+    else
+      false
+    end
+  end
+
 
   private
 
